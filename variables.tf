@@ -1,31 +1,10 @@
-variable "name" {
-  description = "Tenant name"
+variable "interface_preference" {
+  description = "Interface preference, Choices: `inband`, `ooband`"
   type        = string
+  default     = "inband"
 
   validation {
-    condition     = can(regex("^[a-zA-Z0-9_.-]{0,64}$", var.name))
-    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `_`, `.`, `-`. Maximum characters: 64."
-  }
-}
-
-variable "alias" {
-  description = "Tenant alias"
-  type        = string
-  default     = ""
-
-  validation {
-    condition     = can(regex("^[a-zA-Z0-9_.-]{0,64}$", var.alias))
-    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `_`, `.`, `-`. Maximum characters: 64."
-  }
-}
-
-variable "description" {
-  description = "Tenant description"
-  type        = string
-  default     = ""
-
-  validation {
-    condition     = can(regex("^[a-zA-Z0-9\\!#$%()*,-./:;@ _{|}~?&+]{0,128}$", var.description))
-    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `\\`, `!`, `#`, `$`, `%`, `(`, `)`, `*`, `,`, `-`, `.`, `/`, `:`, `;`, `@`, ` `, `_`, `{`, `|`, }`, `~`, `?`, `&`, `+`. Maximum characters: 128."
+    condition     = contains(["inband", "ooband"], var.interface_preference)
+    error_message = "Valid values are `inband` or `ooband`."
   }
 }

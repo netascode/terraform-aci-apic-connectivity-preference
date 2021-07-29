@@ -1,9 +1,7 @@
-resource "aci_rest" "fvTenant" {
-  dn         = "uni/tn-${var.name}"
-  class_name = "fvTenant"
+resource "aci_rest" "mgmtConnectivityPrefs" {
+  dn         = "uni/fabric/connectivityPrefs"
+  class_name = "mgmtConnectivityPrefs"
   content = {
-    name      = var.name
-    nameAlias = var.alias
-    descr     = var.description
+    interfacePref = var.interface_preference
   }
 }

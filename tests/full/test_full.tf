@@ -14,35 +14,21 @@ terraform {
 module "main" {
   source = "../.."
 
-  name        = "ABC"
-  alias       = "ALIAS"
-  description = "DESCR"
+  interface_preference = "ooband"
 }
 
-data "aci_rest" "fvTenant" {
-  dn = "uni/tn-ABC"
+data "aci_rest" "mgmtConnectivityPrefs" {
+  dn = "uni/fabric/connectivityPrefs"
 
   depends_on = [module.main]
 }
 
-resource "test_assertions" "fvTenant" {
-  component = "fvTenant"
+resource "test_assertions" "mgmtConnectivityPrefs" {
+  component = "mgmtConnectivityPrefs"
 
-  equal "name" {
-    description = "name"
-    got         = data.aci_rest.fvTenant.content.name
-    want        = "ABC"
-  }
-
-  equal "nameAlias" {
-    description = "nameAlias"
-    got         = data.aci_rest.fvTenant.content.nameAlias
-    want        = "ALIAS"
-  }
-
-  equal "descr" {
-    description = "descr"
-    got         = data.aci_rest.fvTenant.content.descr
-    want        = "DESCR"
+  equal "interfacePref" {
+    description = "interfacePref"
+    got         = data.aci_rest.mgmtConnectivityPrefs.content.interfacePref
+    want        = "ooband"
   }
 }

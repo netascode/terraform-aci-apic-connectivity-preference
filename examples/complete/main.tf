@@ -1,7 +1,5 @@
-module "aci_scaffolding" {
-  source = "netascode/scaffolding/aci"
+module "aci_apic_connectivity_preference" {
+  source = "netascode/apic-connectivity-preference/aci"
 
-  name        = "ABC"
-  alias       = "ABC-ALIAS"
-  description = "My Description"
+  interface_preference = "ooband"
 }
