@@ -36,7 +36,7 @@ module "aci_apic_connectivity_preference" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_interface_preference"></a> [interface\_preference](#input\_interface\_preference) | Interface preference, Choices: `inband`, `ooband` | `string` | `"inband"` | no |
+| <a name="input_interface_preference"></a> [interface\_preference](#input\_interface\_preference) | Interface preference. Choices: `inband`, `ooband` | `string` | `"inband"` | no |
 
 ## Outputs
 

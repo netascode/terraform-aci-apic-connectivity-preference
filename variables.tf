@@ -1,5 +1,5 @@
 variable "interface_preference" {
-  description = "Interface preference, Choices: `inband`, `ooband`"
+  description = "Interface preference. Choices: `inband`, `ooband`"
   type        = string
   default     = "inband"
 
