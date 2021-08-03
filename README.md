@@ -42,7 +42,7 @@ module "aci_apic_connectivity_preference" {
 
 | Name | Description |
 |------|-------------|
-| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `mgmtConnectivityPrefs` object |
+| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `mgmtConnectivityPrefs` object. |
 
 ## Resources
 
