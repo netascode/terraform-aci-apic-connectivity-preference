@@ -1,4 +1,4 @@
 output "dn" {
-  value       = aci_rest.mgmtConnectivityPrefs.id
+  value       = aci_rest_managed.mgmtConnectivityPrefs.id
   description = "Distinguished name of `mgmtConnectivityPrefs` object."
 }

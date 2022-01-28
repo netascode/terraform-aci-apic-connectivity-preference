@@ -5,8 +5,8 @@ terraform {
     }
 
     aci = {
-      source  = "netascode/aci"
-      version = ">=0.2.0"
+      source  = "CiscoDevNet/aci"
+      version = ">=2.0.0"
     }
   }
 }
@@ -17,7 +17,7 @@ module "main" {
   interface_preference = "ooband"
 }
 
-data "aci_rest" "mgmtConnectivityPrefs" {
+data "aci_rest_managed" "mgmtConnectivityPrefs" {
   dn = "uni/fabric/connectivityPrefs"
 
   depends_on = [module.main]
@@ -28,7 +28,7 @@ resource "test_assertions" "mgmtConnectivityPrefs" {
 
   equal "interfacePref" {
     description = "interfacePref"
-    got         = data.aci_rest.mgmtConnectivityPrefs.content.interfacePref
+    got         = data.aci_rest_managed.mgmtConnectivityPrefs.content.interfacePref
     want        = "ooband"
   }
 }

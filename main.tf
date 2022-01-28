@@ -1,4 +1,4 @@
-resource "aci_rest" "mgmtConnectivityPrefs" {
+resource "aci_rest_managed" "mgmtConnectivityPrefs" {
   dn         = "uni/fabric/connectivityPrefs"
   class_name = "mgmtConnectivityPrefs"
   content = {
